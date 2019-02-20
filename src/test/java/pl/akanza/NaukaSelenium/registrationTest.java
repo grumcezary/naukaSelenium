@@ -1,5 +1,7 @@
 package pl.akanza.NaukaSelenium;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -35,11 +37,15 @@ public class registrationTest {
 		driver.findElement(By.linkText("Sign in")).click();
 		Assert.assertEquals(driver.getTitle(), "Login - My Store");
 		driver.findElement(By.id("email_create")).clear();
-		driver.findElement(By.id("email_create")).sendKeys("cymmoluloci-6395@yopmail.com");
+		driver.findElement(By.id("email_create")).sendKeys("lojaxusott-8320@yopmail.com");
 		driver.findElement(By.id("SubmitCreate")).click();
-		
-		driver.findElement(By.xpath("//*[@id=\"account-creation_form\"]/div[1]/div[1]/div[1]")).click();
-		driver.findElement(By.id("customer_firstname")).sendKeys("Joe");
+		Init.sleep(2);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		System.out.println("Szukam radiobuttona");
+		//driver.findElement(By.xpath("//*[@id=\"account-creation_form\"]/div[1]/div[1]/div[1]")).click();
+		driver.findElement(By.name("customer_firstname")).clear();
+		driver.findElement(By.name("customer_firstname")).click();
+		driver.findElement(By.name("customer_firstname")).sendKeys("Joe");
 		driver.findElement(By.id("customer_lastname")).sendKeys("Kovalsky");
 		driver.findElement(By.id("passwd")).sendKeys("automation9");
 		Select selectDays = new Select(driver.findElement(By.id("days")));
@@ -58,7 +64,7 @@ public class registrationTest {
 		driver.findElement(By.id("city")).sendKeys("Lublin");
 		Select selectCity = new Select(driver.findElement(By.id("id_state")));
 		selectCity.selectByValue("50");
-		driver.findElement(By.id("postcode")).sendKeys("20-112");
+		driver.findElement(By.id("postcode")).sendKeys("20112");
 		Select selectCountry = new Select(driver.findElement(By.id("id_country")));
 		selectCountry.selectByValue("21");
 		driver.findElement(By.id("other")).sendKeys("Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -70,6 +76,8 @@ public class registrationTest {
 		driver.findElement(By.id("alias")).clear();
 		driver.findElement(By.id("alias")).sendKeys("cymmoluloci-6395@yopmail.com");
 		driver.findElement(By.id("submitAccount")).click();
+		
+		
 		
 		
 		

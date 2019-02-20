@@ -21,6 +21,11 @@ public class Init {
 		
 	}
 
+	public static void sleep(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }
