@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import PageObjects.Registration;
 import pl.akanza.NaukaSelenium.Init;
 
 public class registrationTest {
@@ -21,6 +22,7 @@ public class registrationTest {
 	public void openPage() {
 		driver = Init.getDriver();
 	}
+	/**
 	@Ignore
 	@Test
 	public void login() {
@@ -32,17 +34,20 @@ public class registrationTest {
 		Assert.assertFalse(driver.findElement(By.id("create_account_error"))
 	             .getText().contains("Invalid email address."));
 	}
+	@Ignore
 	@Test
 	public void assertTrue() {
 		driver.findElement(By.linkText("Sign in")).click();
 		Assert.assertEquals(driver.getTitle(), "Login - My Store");
+		String breadcrumbText = driver.findElement(By.xpath("//*[@id=\"columns\"]/div[1]/span[2]")).getText();
+		System.out.println(breadcrumbText);
 		driver.findElement(By.id("email_create")).clear();
-		driver.findElement(By.id("email_create")).sendKeys("lojaxusott-8320@yopmail.com");
+		driver.findElement(By.id("email_create")).sendKeys("suxewixenn-1786@yopmail.com");
 		driver.findElement(By.id("SubmitCreate")).click();
 		Init.sleep(2);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		System.out.println("Szukam radiobuttona");
-		//driver.findElement(By.xpath("//*[@id=\"account-creation_form\"]/div[1]/div[1]/div[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"account-creation_form\"]/div[1]/div[1]/div[1]")).click();
 		driver.findElement(By.name("customer_firstname")).clear();
 		driver.findElement(By.name("customer_firstname")).click();
 		driver.findElement(By.name("customer_firstname")).sendKeys("Joe");
@@ -75,26 +80,22 @@ public class registrationTest {
 		driver.findElement(By.id("phone_mobile")).sendKeys("600987652");
 		driver.findElement(By.id("alias")).clear();
 		driver.findElement(By.id("alias")).sendKeys("cymmoluloci-6395@yopmail.com");
-		driver.findElement(By.id("submitAccount")).click();
-		
-		
-		
-		
-		
-		
-		
-		
-		//String pobieranyText = driver.findElement(By.linkText("Invalid email address.")).getText();
-		//System.out.println(pobieranyText);
-		//System.out.println("Wyświetlam pobrany tekst");
-		//String breadcrumbText = driver.findElement(By.xpath("//*[@id=\"columns\"]/div[1]/span[2]")).getText();
-		//System.out.println(breadcrumbText);
-	
-		
-	
-		
-		
+		driver.findElement(By.id("submitAccount")).click();		
 	}
+	**/
+	
+	@Test
+	public void logOn () {
+		Registration registration = new Registration();
+		registration.signin();
+		registration.emailcreate("abcd@wp.pl");
+		System.out.println("Szukam przycisku Create an account");
+		driver.findElement(By.id("SubmitCreate")).click();
+		System.out.println("Kliknąłem w przycisk Create an account");	
+	}
+	
+	
+	
 	@After
 	public void close () {
 		Init.endTest();	
