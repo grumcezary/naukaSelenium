@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import pl.akanza.NaukaSelenium.Init;
 
+
 public class Registration {
 	
 WebDriver driver;
@@ -21,7 +22,10 @@ WebDriver driver;
 	WebElement submitcreate;
 	
 	
-	 public void registration () {
+
+
+
+	public Registration () {
 	     driver = Init.getDriver();
 	     PageFactory.initElements(driver, this);
 
@@ -29,13 +33,13 @@ WebDriver driver;
 	
 	 
 	 public void signin() {
-		 this.signin.click();
+		signin.click();
 	 }
 	 
-	 public void emailcreate(String inputEmail) {
-		    this.inputEmail.clear();
-		    this.inputEmail.sendKeys(inputEmail);
-		    this.submitcreate.click();
+	 public void emailcreate(String inputE) {
+		    inputEmail.clear();
+		    inputEmail.sendKeys(inputE);
+		    submitcreate.click();
 		}
 
 

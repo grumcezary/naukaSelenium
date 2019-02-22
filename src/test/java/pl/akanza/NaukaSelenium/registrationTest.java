@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,9 +15,12 @@ import org.openqa.selenium.support.ui.Select;
 import PageObjects.Registration;
 import pl.akanza.NaukaSelenium.Init;
 
+
+
+
 public class registrationTest {
 	
-	WebDriver driver;
+	WebDriver driver = null;
 	
 	@Before
 	public void openPage() {
@@ -87,11 +91,11 @@ public class registrationTest {
 	@Test
 	public void logOn () {
 		Registration registration = new Registration();
+		System.out.println("Szukam Signin");
 		registration.signin();
-		registration.emailcreate("abcd@wp.pl");
-		System.out.println("Szukam przycisku Create an account");
-		driver.findElement(By.id("SubmitCreate")).click();
-		System.out.println("Kliknąłem w przycisk Create an account");	
+		Init.sleep(1);
+		registration.emailcreate("abcd@wp.pl");	
+		System.out.println("Koniec testu logOn");
 	}
 	
 	
