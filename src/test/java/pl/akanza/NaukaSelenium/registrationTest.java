@@ -10,8 +10,11 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import PageObjects.CreateUser;
 import PageObjects.Registration;
 import pl.akanza.NaukaSelenium.Init;
 
@@ -26,7 +29,71 @@ public class registrationTest {
 	public void openPage() {
 		driver = Init.getDriver();
 	}
-	/**
+	@Ignore
+	@Test
+	public void RegistrationPositive () {
+		Registration registration = new Registration();
+		System.out.println("Szukam Signin");
+		registration.signin();
+		Init.sleep(1);
+		registration.emailcreate("abcd@wp.pl");	
+		registration.createAnAccountButton();
+		System.out.println("Koniec testu logOn");
+	}
+	@Ignore
+	@Test
+	public void RegistrationNegative () {
+		Registration registration = new Registration();
+		System.out.println("Szukam Signin");
+		registration.signin();
+		Init.sleep(1);
+		registration.createAnAccountButton();
+		System.out.println("Koniec testu logOn");
+	}
+	@Test
+	public void CreateUser1 () {
+		Registration registration = new Registration();
+		System.out.println("Szukam Signin");
+		registration.signin();
+		Init.sleep(1);
+		registration.emailcreate("user3@wp.pl");	
+		registration.createAnAccountButton();
+		System.out.println("Koniec testu logOn");
+		
+		
+		CreateUser createUser = new CreateUser();
+		System.out.println("Szukam buttona");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		createUser.buttonMrClick();
+		//createUser.buttonMrsClick();
+		createUser.firstNameInput("Alina");
+		createUser.lastNameInput("Kowalska");
+		createUser.passwordInput("kowalska1980");
+		createUser.select_days("5");
+		createUser.select_months("March ");
+		createUser.select_years("1980");
+		createUser.newsletterClick();
+		createUser.specialOffersClick();
+		createUser.addressFirstNameInput("Alina");
+		createUser.addressLastNameInput("Kowalska");
+		createUser.company_Name("Firma OKO");
+		createUser.address1_Input("Wolska 15/3");
+		createUser.address2_Input("Niemiecka 12/2");
+		createUser.city_Name("Lublin");
+		createUser.select_state("Colorado");
+		createUser.postal_Number("20100");
+		createUser.select_country("Polska");
+		createUser.additional("Tutaj powinna znaleść się jakaś informacja");
+		createUser.homeP("5002343");
+		createUser.mobileP("508972091");
+		createUser.myAddress2("jakis adres");
+		createUser.submit_Account1();
+	}
+	
+	
+	
+	
+	
 	@Ignore
 	@Test
 	public void login() {
@@ -86,17 +153,6 @@ public class registrationTest {
 		driver.findElement(By.id("alias")).sendKeys("cymmoluloci-6395@yopmail.com");
 		driver.findElement(By.id("submitAccount")).click();		
 	}
-	**/
-	
-	@Test
-	public void logOn () {
-		Registration registration = new Registration();
-		System.out.println("Szukam Signin");
-		registration.signin();
-		Init.sleep(1);
-		registration.emailcreate("abcd@wp.pl");	
-		System.out.println("Koniec testu logOn");
-	}
 	
 	
 	
@@ -108,4 +164,38 @@ public class registrationTest {
 	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

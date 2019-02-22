@@ -39,8 +39,9 @@ WebDriver driver;
 	 public void emailcreate(String inputE) {
 		    inputEmail.clear();
 		    inputEmail.sendKeys(inputE);
-		    submitcreate.click();
 		}
-
+	 public void createAnAccountButton() {
+		    submitcreate.click();
+	 }
 
 }
