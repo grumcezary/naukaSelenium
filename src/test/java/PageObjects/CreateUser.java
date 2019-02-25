@@ -119,15 +119,15 @@ WebDriver driver;
 
 	 public void select_days(String day_number){
 	     Select daysSelect = new Select(days_Select);
-	     daysSelect.selectByVisibleText(day_number);
+	     daysSelect.selectByValue(day_number);
 	  }
 	 public void select_months(String month_number){
 	     Select monthsSelect = new Select(months_Select);
-	     monthsSelect.selectByVisibleText(month_number);
+	     monthsSelect.selectByValue(month_number);
 	  }
 	 public void select_years(String year_number){
 	     Select monthsSelect = new Select(years_Select);
-	     monthsSelect.selectByVisibleText(year_number);
+	     monthsSelect.selectByValue(year_number);
 	  }
 	 public void newsletterClick() {
 		 newsletterCheckbox.click();	 
@@ -161,7 +161,7 @@ WebDriver driver;
 	}
 	public void select_state(String state_number){
 	     Select stateSelect = new Select(state);
-	     stateSelect.selectByVisibleText(state_number);
+	     stateSelect.selectByValue(state_number);
 	}
 	public void postal_Number (String postalNumber ) {
 		postalCode.clear();
@@ -169,7 +169,7 @@ WebDriver driver;
 	}
 	public void select_country(String country_number){
 	     Select countrySelect = new Select(state);
-	     countrySelect.selectByVisibleText(country_number);
+	     countrySelect.selectByValue(country_number);
 	}
 	public void additional (String additional1 ) {
 		additionalInformation.clear();
@@ -191,18 +191,5 @@ WebDriver driver;
 		submit_Account.click();
 		
 	}
-	
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+		 
 }

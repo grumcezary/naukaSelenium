@@ -15,7 +15,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import PageObjects.CreateUser;
-import PageObjects.Registration;
+import PageObjects.Authentication;
 import pl.akanza.NaukaSelenium.Init;
 
 
@@ -23,41 +23,60 @@ import pl.akanza.NaukaSelenium.Init;
 
 public class registrationTest {
 	
-	WebDriver driver = null;
+WebDriver driver = null;
 	
 	@Before
 	public void openPage() {
 		driver = Init.getDriver();
 	}
-	@Ignore
+	
 	@Test
 	public void RegistrationPositive () {
-		Registration registration = new Registration();
-		System.out.println("Szukam Signin");
+		Authentication registration = new Authentication();
+		System.out.println("Start test 1");
 		registration.signin();
 		Init.sleep(1);
-		registration.emailcreate("abcd@wp.pl");	
+		Assert.assertEquals(driver.getTitle(), "Login - My Store");
+		String breadcrumbText = driver.findElement(By.xpath("//*[@id=\"columns\"]/div[1]/span[2]")).getText();
+		registration.emailcreate("abcdefg@wp.pl");	
 		registration.createAnAccountButton();
-		System.out.println("Koniec testu logOn");
+		System.out.println("Koniec testu");
 	}
-	@Ignore
+	
 	@Test
 	public void RegistrationNegative () {
-		Registration registration = new Registration();
-		System.out.println("Szukam Signin");
+		Authentication registration = new Authentication();
+		System.out.println("Start test 2");
 		registration.signin();
 		Init.sleep(1);
 		registration.createAnAccountButton();
-		System.out.println("Koniec testu logOn");
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		String inwalidEmailText = driver.findElement(By.xpath("//*[@id=\"create_account_error\"]/ol/li")).getText();
+		System.out.println(inwalidEmailText);
+		System.out.println("Koniec testu");
 	}
 	@Test
-	public void CreateUser1 () {
-		Registration registration = new Registration();
-		System.out.println("Szukam Signin");
+	public void RegistrationAlreadyEmail () {
+		Authentication registration = new Authentication();
+		System.out.println("Start test 3");
 		registration.signin();
 		Init.sleep(1);
-		registration.emailcreate("user3@wp.pl");	
+		registration.emailcreate("abcd@wp.pl");
 		registration.createAnAccountButton();
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		String inwalidEmailText = driver.findElement(By.xpath("//*[@id=\"create_account_error\"]/ol/li")).getText();
+		System.out.println(inwalidEmailText);
+		System.out.println("Koniec testu");
+	}
+	
+	@Test
+	public void CreateUser1 () {
+		Authentication authentication = new Authentication();
+		System.out.println("Start test 4");
+		authentication.signin();
+		Init.sleep(1);
+		authentication.emailcreate("user11@wp.pl");	
+		authentication.createAnAccountButton();
 		System.out.println("Koniec testu logOn");
 		
 		
@@ -70,7 +89,7 @@ public class registrationTest {
 		createUser.lastNameInput("Kowalska");
 		createUser.passwordInput("kowalska1980");
 		createUser.select_days("5");
-		createUser.select_months("March ");
+		createUser.select_months("3");
 		createUser.select_years("1980");
 		createUser.newsletterClick();
 		createUser.specialOffersClick();
@@ -80,21 +99,34 @@ public class registrationTest {
 		createUser.address1_Input("Wolska 15/3");
 		createUser.address2_Input("Niemiecka 12/2");
 		createUser.city_Name("Lublin");
-		createUser.select_state("Colorado");
+		createUser.select_state("6");
 		createUser.postal_Number("20100");
-		createUser.select_country("Polska");
+		createUser.select_country("21");
 		createUser.additional("Tutaj powinna znaleść się jakaś informacja");
 		createUser.homeP("5002343");
 		createUser.mobileP("508972091");
 		createUser.myAddress2("jakis adres");
 		createUser.submit_Account1();
 	}
+	@Test
+	public void SignIn () {
+		Authentication authentication = new Authentication();
+		System.out.println("Start test 5");
+		authentication.signin();
+		authentication.emailInput("user11@wp.pl");
+		authentication.passwordInput("kowalska1890");
+		authentication.submitLogin();
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		String breadcrumbsText = driver.findElement(By.xpath("//*[@id=\"columns\"]/div[1]/span[2]")).getText();
+		System.out.println(breadcrumbsText);
+		System.out.println("Koniec testu poprawne logowanie");
+	}
 	
 	
 	
 	
 	
-	@Ignore
+	/**
 	@Test
 	public void login() {
 		driver.findElement(By.linkText("Sign in")).click();
@@ -105,7 +137,7 @@ public class registrationTest {
 		Assert.assertFalse(driver.findElement(By.id("create_account_error"))
 	             .getText().contains("Invalid email address."));
 	}
-	@Ignore
+	
 	@Test
 	public void assertTrue() {
 		driver.findElement(By.linkText("Sign in")).click();
@@ -153,12 +185,12 @@ public class registrationTest {
 		driver.findElement(By.id("alias")).sendKeys("cymmoluloci-6395@yopmail.com");
 		driver.findElement(By.id("submitAccount")).click();		
 	}
-	
+	**/
 	
 	
 	@After
 	public void close () {
-		Init.endTest();	
+		// Init.endTest();	
 	}
 	
 	
