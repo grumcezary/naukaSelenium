@@ -18,9 +18,6 @@ import PageObjects.CreateUser;
 import PageObjects.Authentication;
 import pl.akanza.NaukaSelenium.Init;
 
-
-
-
 public class registrationTest {
 	
 WebDriver driver = null;
@@ -38,7 +35,7 @@ WebDriver driver = null;
 		Init.sleep(1);
 		Assert.assertEquals(driver.getTitle(), "Login - My Store");
 		String breadcrumbText = driver.findElement(By.xpath("//*[@id=\"columns\"]/div[1]/span[2]")).getText();
-		registration.emailcreate("abcdefg@wp.pl");	
+		registration.emailcreate("abcdefgi@wp.pl");	
 		registration.createAnAccountButton();
 		System.out.println("Koniec testu");
 	}
@@ -68,18 +65,15 @@ WebDriver driver = null;
 		System.out.println(inwalidEmailText);
 		System.out.println("Koniec testu");
 	}
-	
 	@Test
 	public void CreateUser1 () {
 		Authentication authentication = new Authentication();
 		System.out.println("Start test 4");
 		authentication.signin();
 		Init.sleep(1);
-		authentication.emailcreate("user11@wp.pl");	
+		authentication.emailcreate("user13@wp.pl" );	
 		authentication.createAnAccountButton();
-		System.out.println("Koniec testu logOn");
-		
-		
+		System.out.println("Koniec testu");
 		CreateUser createUser = new CreateUser();
 		System.out.println("Szukam buttona");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -196,38 +190,5 @@ WebDriver driver = null;
 	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

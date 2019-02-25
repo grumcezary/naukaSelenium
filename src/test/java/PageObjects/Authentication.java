@@ -33,39 +33,32 @@ WebDriver driver;
 	@FindBy (id = "SubmitLogin")
 	WebElement submitLogin;
 	
-
-
-
 	public Authentication () {
 	     driver = Init.getDriver();
 	     PageFactory.initElements(driver, this);
-
-	    }
-	
-	 
+	}	 
 	 public void signin() {
 		signin.click();
-	 }
-	 
+	}
 	 public void emailcreate(String inputE) {
 		    inputEmail.clear();
 		    inputEmail.sendKeys(inputE);
-		}
+	}
 	 public void createAnAccountButton() {
 		    submitcreate.click();
-	 }
+	}
 	 public void emailInput (String eInput) {
 		 emailInput.clear();
 		 emailInput.sendKeys(eInput);
-	 }
+	}
 	 public void passwordInput(String pInput) {
 		 passwordInput.clear();
 		 passwordInput.sendKeys(pInput);
-	 }
+	}
 	 public void forgotYourPassword() {
 		 forgotYourPassword.click();
-	 }
+	}
 	 public void submitLogin() {
 		 submitLogin.click();
-	 }
+	}
 }
