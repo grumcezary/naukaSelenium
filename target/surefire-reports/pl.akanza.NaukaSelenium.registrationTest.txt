@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pl.akanza.NaukaSelenium.registrationTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.67 sec
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 38.824 sec

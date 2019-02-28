@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="pl.akanza.NaukaSelenium.registrationTest" time="36.621" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="pl.akanza.NaukaSelenium.registrationTest" time="52.348" errors="0" skipped="2">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
@@ -27,7 +27,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\Users\S3\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5814256966591927238.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\S3\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf2129196786450103892.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1250"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_201\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_201/bin/server;C:/Program Files/Java/jre1.8.0_201/bin;C:/Program Files/Java/jre1.8.0_201/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Program Files (x86)\Intel\Services\IPT\;C:\Program Files\Dell\Dell Data Protection\Access\Advanced\Wave\Gemalto\Access Client\v5\;C:\Program Files (x86)\NTRU Cryptosystems\NTRU TCG Software Stack\bin\;C:\Program Files\NTRU Cryptosystems\NTRU TCG Software Stack\bin\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\12.0\DLLShared\;C:\Program Files (x86)\Roxio\OEM\AudioCore\;C:\Program Files\Git\cmd;C:\HashiCorp\Vagrant\bin;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\:C:\apache-maven-3.6.0\bin;C:\Users\S3\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\S3\AppData\Local\Programs\Python\Python37-32\;C:\Users\S3\AppData\Roaming\npm;C:\Microsoft VS Code\bin;C:\Users\S3\AppData\Local\Programs\Python\Python37-32;C:\Users\S3\Desktop;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,9 +61,15 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="SignIn" time="13.224"/>
-  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="RegistrationPositive" time="2.885"/>
-  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="RegistrationNegative" time="4.844"/>
-  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="RegistrationAlreadyEmail" time="4.601"/>
-  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="CreateUser1" time="11.067"/>
+  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="SignIn" time="17.55"/>
+  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="RegistrationPositive" time="3.044"/>
+  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="RegistrationNegative" time="4.581"/>
+  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="RegistrationAlreadyEmail" time="3.9"/>
+  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="login" time="3.901">
+    <skipped/>
+  </testcase>
+  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="CreateUser1" time="9.686"/>
+  <testcase classname="pl.akanza.NaukaSelenium.registrationTest" name="assertTrue" time="9.686">
+    <skipped/>
+  </testcase>
 </testsuite>

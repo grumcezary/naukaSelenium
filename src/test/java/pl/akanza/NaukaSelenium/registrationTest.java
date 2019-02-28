@@ -18,15 +18,12 @@ import PageObjects.CreateUser;
 import PageObjects.Authentication;
 import pl.akanza.NaukaSelenium.Init;
 
-public class registrationTest {
-	
-WebDriver driver = null;
-	
+public class registrationTest {	
+WebDriver driver = null;	
 	@Before
 	public void openPage() {
 		driver = Init.getDriver();
 	}
-	
 	@Test
 	public void RegistrationPositive () {
 		Authentication registration = new Authentication();
@@ -39,7 +36,6 @@ WebDriver driver = null;
 		registration.createAnAccountButton();
 		System.out.println("Koniec testu");
 	}
-	
 	@Test
 	public void RegistrationNegative () {
 		Authentication registration = new Authentication();
@@ -71,7 +67,7 @@ WebDriver driver = null;
 		System.out.println("Start test 4");
 		authentication.signin();
 		Init.sleep(1);
-		authentication.emailcreate("user13@wp.pl" );	
+		authentication.emailcreate("user" + Math.random() +"@wp.pl");	
 		authentication.createAnAccountButton();
 		System.out.println("Koniec testu");
 		CreateUser createUser = new CreateUser();
@@ -114,13 +110,8 @@ WebDriver driver = null;
 		String breadcrumbsText = driver.findElement(By.xpath("//*[@id=\"columns\"]/div[1]/span[2]")).getText();
 		System.out.println(breadcrumbsText);
 		System.out.println("Koniec testu poprawne logowanie");
-	}
-	
-	
-	
-	
-	
-	/**
+	}	
+	@Ignore
 	@Test
 	public void login() {
 		driver.findElement(By.linkText("Sign in")).click();
@@ -131,7 +122,7 @@ WebDriver driver = null;
 		Assert.assertFalse(driver.findElement(By.id("create_account_error"))
 	             .getText().contains("Invalid email address."));
 	}
-	
+	@Ignore
 	@Test
 	public void assertTrue() {
 		driver.findElement(By.linkText("Sign in")).click();
@@ -179,16 +170,10 @@ WebDriver driver = null;
 		driver.findElement(By.id("alias")).sendKeys("cymmoluloci-6395@yopmail.com");
 		driver.findElement(By.id("submitAccount")).click();		
 	}
-	**/
-	
-	
 	@After
 	public void close () {
 		// Init.endTest();	
 	}
-	
-	
-
 }
 
 
